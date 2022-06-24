@@ -34,3 +34,10 @@ jobs:
           push: true
           platforms: linux/amd64,linux/arm64,linux/arm
           tags: wmdscjhdpy/uestc-autologin:latest
+    - name: Docker Hub Description
+      uses: peter-evans/dockerhub-description@v3
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_PASSWORD }}
+        repository: wmdscjhdpy/uestc-autologin
+        readme-filepath: ./path/to/README.md
