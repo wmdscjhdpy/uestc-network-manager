@@ -17,7 +17,7 @@ jobs:
       with:
         submodules: 'true'
 #     - name: Build the Docker image
-#       run: docker build . --file Dockerfile --tag UESTC-Autologin:$(date +%s)
+#       run: docker build . --file Dockerfile --tag uestc-autologin:$(date +%s)
     - name: Set up QEMU
       uses: docker/setup-qemu-action@v2
     - name: Set up Docker Buildx
