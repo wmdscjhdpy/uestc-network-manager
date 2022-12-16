@@ -87,8 +87,10 @@ class Client {
       ss << p.first << "=" << p.second << "&";
     }
     path += ("?" + ss.str());
+    std::cout<<"[DEBUG] Now will try "<<path<<std::endl;
     if (auto res = client_->Get(path.c_str())) {
       if (res->status == 200) {
+        std::cout<<"[DEBUG] res status------------------------"<<std::endl<<res<<std::endl<<"[DEBUG] res status------------------------"<<std::endl;
         std::smatch results;
         if (std::regex_search(res->body, results,
                               std::regex("\"challenge\":\"(.*?)\""))) {
@@ -98,6 +100,7 @@ class Client {
       }
     } else {
       auto err = res.error();
+      std::cout<<"[ERROR] Get failed. Error code is "<<err<<std::endl;
     }
     return false;
   }
@@ -129,12 +132,13 @@ class Client {
     if (IsAccessInternet()) {
       std::cout << "You have authorized this network, not need to login"
                 << std::endl;
-      return true;
+      //If you want to debug you can comment next line
+      //return true;
     }
     std::string challenge;
     auto ret = GetChallenge(u, challenge);
     if (!ret) {
-      std::cout << "get challenge failed" << std::endl;
+      std::cout << "[ERROR] get challenge failed" << std::endl;
       return false;
     }
 
@@ -190,7 +194,8 @@ class Client {
 int main() {
   uestc::Config config{};
   uestc::kDomain=config.get("kDomain");
-  uestc::Client client("http://aaa.uestc.edu.cn");
+  std::cout<<"[DEBUG] Will use web "<<config.get("web")<<"to login\n";
+  uestc::Client client(config.get("web"));
   uestc::UserInfo user(config.get("username"), config.get("password"), "", config.get("ac_id"),
                        config.get("kEncVer"));
   int interval = std::atoi(config.get("interval").c_str());

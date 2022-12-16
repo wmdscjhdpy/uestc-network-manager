@@ -1,7 +1,19 @@
 # UESTC network login
 [![example workflow name](https://github.com/ehds/uestc_network_manager/workflows/C/C++%20CI/badge.svg)](https://github.com/ehds/uestc_network_manager/actions)
 
-# Linux
+# Linux(Ubuntu)
+## Dependence
+```
+sudo apt-get install libssl-dev cmake git build-essential
+```
+
+## Clone
+```
+git clone https://github.com/wmdscjhdpy/uestc-network-manager.git
+cd uestc-network-manager
+git submodule update --init --recursive
+```
+
 ## Build
 ```
 mkdir build
