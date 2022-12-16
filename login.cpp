@@ -90,7 +90,7 @@ class Client {
     std::cout<<"[DEBUG] Now will try "<<path<<std::endl;
     if (auto res = client_->Get(path.c_str())) {
       if (res->status == 200) {
-        std::cout<<"[DEBUG] res status------------------------"<<std::endl<<res<<std::endl<<"[DEBUG] res status------------------------"<<std::endl;
+        std::cout<<"[DEBUG] res status------------------------"<<std::endl<<res->body<<std::endl<<"[DEBUG] res status------------------------"<<std::endl;
         std::smatch results;
         if (std::regex_search(res->body, results,
                               std::regex("\"challenge\":\"(.*?)\""))) {
