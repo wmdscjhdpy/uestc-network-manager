@@ -106,10 +106,7 @@ class Client {
   }
 
   bool IsAccessInternet() {
-    std::vector<std::string> hosts{"https://www.baidu.com",
-                                   "https://www.163.com", "https://sina.com"};
-    for (auto host : hosts) {
-      httplib::Client client("https://www.baidu.com");
+      httplib::Client client("www.baidu.com");
       client.set_follow_location(true);
       client.set_connection_timeout(0, 300000);
       if (auto res = client.Get("/")) {
@@ -118,7 +115,6 @@ class Client {
           return true;
         }
       }
-    }
     std::cout << "can not access network" << std::endl;
     return false;
   }
