@@ -1,12 +1,12 @@
 #build image, not use in final image
-FROM alpine:3.16 as builder
+FROM alpine as builder
 WORKDIR /uestc_networkmanager/
 COPY ./ /uestc_networkmanager/
 RUN apk update && apk add openssl gcc g++ make libffi-dev openssl-dev libtool cmake
 RUN cmake . && make
 
 #main image
-FROM alpine:3.16
+FROM alpine
 LABEL org.opencontainers.image.authors="wmdscjhdpy@gmail.com"
 
 #Set envirement
