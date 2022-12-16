@@ -132,7 +132,7 @@ class Client {
       std::cout << "You have authorized this network, not need to login"
                 << std::endl;
       //If you want to debug you can comment next line
-      //return true;
+      return true;
     }
     std::string challenge;
     auto ret = GetChallenge(u, challenge);
