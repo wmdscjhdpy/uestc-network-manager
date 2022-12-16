@@ -8,8 +8,8 @@
 #include <string>
 #include <unordered_map>
 namespace uestc {
-    //const static std::string kConfigPath = "/etc/uestc_networkmanager/user.conf";
-    const static std::string kConfigPath = "user.conf";
+    const static std::string kConfigPath = "/etc/uestc_networkmanager/user.conf";
+    //const static std::string kConfigPath = "user.conf";
 class Config {
  public:
   Config(const std::string config_path = kConfigPath);

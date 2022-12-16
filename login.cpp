@@ -114,8 +114,7 @@ class Client {
       client.set_connection_timeout(0, 300000);
       if (auto res = client.Get("/")) {
         if (res->status == 200 || res->status == 301) {
-          // we can access one of the hosts indicated that we connect to the
-          // internet
+          // we can access one of the hosts indicated that we connect to the internet
           return true;
         }
       }

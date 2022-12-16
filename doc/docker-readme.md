@@ -12,6 +12,7 @@ ac_id=1
 kEncVer=srun_bx1
 #login ISP,can be @dx-uestc(laboratory) or @dx(dorm)
 kDomain=@dx-uestc
+web=http://aaa.uestc.edu.cn
 ```
 then use this command to run a image:
 ```

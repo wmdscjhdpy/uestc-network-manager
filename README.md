@@ -1,3 +1,4 @@
+[中文](README.zh.md)
 # UESTC network login
 [![example workflow name](https://github.com/ehds/uestc_network_manager/workflows/C/C++%20CI/badge.svg)](https://github.com/ehds/uestc_network_manager/actions)
 
@@ -36,7 +37,10 @@ When you are in laboratory, it probably set to 1
 When you are in dorm, it probably set to 3
 you also can check your domain when you manually login and the `ac_id` will display on the success website link.
 
-Enable this service and start it.
+### web
+The login page link.
+
+## Enable this service and start
 ```
 systemctl enable uestcnetwork
 systemctl start uestcnetwork
