@@ -36,6 +36,9 @@ This parameter is determined by the region supplying the network.
 如果你是来自宿舍，应该设置为3（不确定，仅开发人员自测）
 该参数同样可以通过登录页面的链接中确定`ac_id`后面的值来判断
 
+### web
+登录页面，默认的aaa.uestc.edu会自动指向可用的登录页面。
+
 ## 启动服务
 ```
 systemctl enable uestcnetwork
