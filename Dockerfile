@@ -1,5 +1,5 @@
 #build image, not use in final image
-FROM ubuntu:20.04 as builder
+FROM ubuntu:18.04 as builder
 WORKDIR /uestc_networkmanager/
 ENV TZ=Asia/Chongqing
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
@@ -8,7 +8,7 @@ RUN apt-get update && apt-get install -y libssl-dev build-essential make cmake
 RUN cmake . && make
 
 #main image
-FROM ubuntu:20.04
+FROM ubuntu:18.04
 LABEL org.opencontainers.image.authors="wmdscjhdpy@gmail.com"
 
 #Set envirement
