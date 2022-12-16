@@ -1,12 +1,14 @@
 #build image, not use in final image
-FROM ubuntu as builder
+FROM ubuntu:20.04 as builder
 WORKDIR /uestc_networkmanager/
+ENV TZ=Asia/Chongqing
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 COPY ./ /uestc_networkmanager/
-RUN apt-get update && apt install openssl gcc g++ make libffi-dev openssl-dev libtool cmake
+RUN apt-get update && apt-get install -y libssl-dev gcc g++ make libffi-dev libtool cmake
 RUN cmake . && make
 
 #main image
-FROM ubuntu
+FROM ubuntu:20.04
 LABEL org.opencontainers.image.authors="wmdscjhdpy@gmail.com"
 
 #Set envirement
@@ -18,7 +20,9 @@ ENV kEncVer=srun_bx1
 ENV kDomain=@dx-uestc
 
 WORKDIR /uestc_networkmanager/
-RUN apt-get update && apt-get install openssl libgcc libstdc++ binutils
+ENV TZ=Asia/Chongqing
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+RUN apt-get update && apt-get install -y libssl-dev libgcc1 binutils
 COPY --from=builder /uestc_networkmanager/uestcnetwork .
 VOLUME /etc/uestc_networkmanager/
 #Create configure file
