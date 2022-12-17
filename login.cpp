@@ -121,8 +121,7 @@ class Client {
   }
   bool AuthNetwork(UserInfo& u) {
     if (IsAccessInternet()) {
-      std::cout << "[INFO] You have authorized this network, not need to login"
-                << std::endl;
+      std::cout << "[INFO] You have authorized this network, not need to login"<< std::endl;
       //If you want to debug you can comment next line
       return true;
     }
@@ -185,7 +184,7 @@ class Client {
 int main() {
   uestc::Config config{};
   uestc::kDomain=config.get("kDomain");
-  std::cout<<"[DEBUG] Will use web "<<config.get("web")<<" to login\n";
+  std::cout<<"[DEBUG] Will use web "<<config.get("web")<<" to login"<<std::endl;
   uestc::Client client(config.get("web"));
   uestc::UserInfo user(config.get("username"), config.get("password"), "", config.get("ac_id"),
                        config.get("kEncVer"));

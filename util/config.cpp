@@ -5,7 +5,6 @@
 // Authors: ehds(ds.he@foxmail.com)
 #include "util/config.h"
 
-#include <cstdlib>
 #include <cstring>
 #include <fstream>
 #include <iostream>
