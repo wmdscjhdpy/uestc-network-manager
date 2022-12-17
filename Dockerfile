@@ -20,7 +20,7 @@ ENV kEncVer=srun_bx1
 ENV kDomain=@dx-uestc
 
 WORKDIR /uestc_networkmanager/
-# ENV TZ=Asia/Chongqing
+ENV TZ=Asia/Chongqing
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 RUN apt-get update && apt-get install -y libssl-dev 
 COPY --from=builder /uestc_networkmanager/uestcnetwork .

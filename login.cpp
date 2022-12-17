@@ -5,11 +5,7 @@
 // Authors: ehds(ds.he@foxmail.com)
 #define CPPHTTPLIB_OPENSSL_SUPPORT
 
-#include <time.h>
-
-#include <chrono>
 #include <iostream>
-#include <memory>
 #include <regex>
 #include <unordered_map>
 
@@ -115,7 +111,7 @@ class Client {
           return true;
         }
       }
-    std::cout << "can not access network" << std::endl;
+    std::cout << "[INFO] can not access network" << std::endl;
     return false;
   }
 
@@ -125,7 +121,7 @@ class Client {
   }
   bool AuthNetwork(UserInfo& u) {
     if (IsAccessInternet()) {
-      std::cout << "You have authorized this network, not need to login"
+      std::cout << "[INFO] You have authorized this network, not need to login"
                 << std::endl;
       //If you want to debug you can comment next line
       return true;
@@ -189,7 +185,7 @@ class Client {
 int main() {
   uestc::Config config{};
   uestc::kDomain=config.get("kDomain");
-  std::cout<<"[DEBUG] Will use web "<<config.get("web")<<"to login\n";
+  std::cout<<"[DEBUG] Will use web "<<config.get("web")<<" to login\n";
   uestc::Client client(config.get("web"));
   uestc::UserInfo user(config.get("username"), config.get("password"), "", config.get("ac_id"),
                        config.get("kEncVer"));
